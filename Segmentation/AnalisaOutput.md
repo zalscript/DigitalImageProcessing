@@ -1,0 +1,12 @@
+Berdasarkan output program segmentasi citra yang ditampilkan, dapat dianalisis bahwa proses segmentasi dilakukan melalui tahapan yang sistematis, mulai dari citra asli, konversi ke grayscale, analisis histogram, hingga penerapan metode thresholding statis dan adaptif. Citra original menunjukkan objek berwarna dengan latar belakang gradasi abu-abu, yang kemudian dikonversi menjadi citra grayscale untuk menyederhanakan informasi warna menjadi intensitas keabuan. Tahap ini penting karena metode thresholding bekerja berdasarkan distribusi nilai intensitas piksel, bukan informasi warna.
+
+Histogram intensitas memperlihatkan adanya beberapa puncak yang merepresentasikan perbedaan intensitas antara objek dan latar belakang. Garis ambang tetap (T = 128) dan ambang hasil metode Otsu (T = 119) ditandai secara visual, menunjukkan bahwa nilai ambang Otsu berada sedikit lebih rendah dibandingkan threshold statis. Hal ini mengindikasikan bahwa metode Otsu menyesuaikan ambang secara otomatis berdasarkan distribusi intensitas untuk memaksimalkan pemisahan antara foreground dan background. Pada hasil citra biner, threshold statis menghasilkan segmentasi yang cenderung kurang optimal karena sebagian besar area menjadi gelap dan objek tidak terpisah dengan jelas. Sebaliknya, hasil threshold Otsu menunjukkan pemisahan yang relatif lebih adaptif, meskipun masih terdapat keterbatasan akibat variasi intensitas latar belakang yang cukup halus.
+
+Secara ringkas, analisa dapat dirangkum sebagai berikut:
+- Konversi ke grayscale berhasil menyederhanakan citra sehingga siap diproses dengan thresholding.
+- Histogram menunjukkan distribusi intensitas yang tidak sepenuhnya bimodal, sehingga menyulitkan pemisahan sempurna - dengan satu nilai ambang.
+- Threshold statis (T = 128) bersifat sederhana namun kurang adaptif terhadap variasi intensitas citra.
+- Metode Otsu (T = 119) mampu menentukan ambang secara otomatis dan memberikan hasil segmentasi yang relatif lebih baik.
+- Perbedaan hasil segmentasi menegaskan bahwa metode adaptif lebih sesuai untuk citra dengan pencahayaan tidak merata.
+
+Dengan demikian, dapat disimpulkan bahwa metode Otsu lebih unggul dibandingkan threshold statis dalam kasus ini, meskipun kualitas segmentasi masih sangat bergantung pada karakteristik citra, khususnya distribusi intensitas dan kondisi pencahayaan latar belakang.
